@@ -14,6 +14,7 @@
 package io.trino.plugin.druid;
 
 import io.trino.Session;
+import io.trino.plugin.jdbc.BaseJdbcConnectorTest;
 import io.trino.plugin.jdbc.JdbcMetadataConfig;
 import io.trino.plugin.jdbc.JdbcTableHandle;
 import io.trino.spi.connector.ConnectorSession;
@@ -23,7 +24,6 @@ import io.trino.sql.planner.plan.AggregationNode;
 import io.trino.sql.planner.plan.JoinNode;
 import io.trino.sql.planner.plan.TableScanNode;
 import io.trino.sql.planner.plan.TopNNode;
-import io.trino.testing.BaseConnectorTest;
 import io.trino.testing.MaterializedResult;
 import io.trino.testing.TestingConnectorBehavior;
 import io.trino.testing.assertions.Assert;
@@ -40,7 +40,7 @@ import static io.trino.testing.MaterializedResult.resultBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public abstract class BaseDruidConnectorTest
-        extends BaseConnectorTest
+        extends BaseJdbcConnectorTest
 {
     protected static final String SELECT_FROM_ORDERS = "SELECT " +
             "orderdate, " +
