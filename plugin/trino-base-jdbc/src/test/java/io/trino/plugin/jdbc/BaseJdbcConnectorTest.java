@@ -93,23 +93,6 @@ public abstract class BaseJdbcConnectorTest
         executor.shutdownNow();
     }
 
-    @Override
-    protected boolean hasBehavior(TestingConnectorBehavior connectorBehavior)
-    {
-        switch (connectorBehavior) {
-            case SUPPORTS_CREATE_VIEW:
-                // Not supported by JdbcMetadata
-                return false;
-
-            case SUPPORTS_DELETE:
-                // Not supported by JdbcMetadata
-                return false;
-
-            default:
-                return super.hasBehavior(connectorBehavior);
-        }
-    }
-
     @Test
     public void testInsertInPresenceOfNotSupportedColumn()
     {
